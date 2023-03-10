@@ -3,7 +3,7 @@ pipeline {
     environment {
         AWS_ACCOUNT_ID="165134813906"
         AWS_DEFAULT_REGION="us-east-1"
-        IMAGE_REPO_NAME="myweb"
+        IMAGE_REPO_NAME="dockerimage-repo"
         IMAGE_TAG="3.01"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
     }
@@ -29,7 +29,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build -t ("${IMAGE_REPO_NAME}:${IMAGE_TAG}")
+          dockerImage = docker.build -t ("$IMAGE_REPO_NAME:${IMAGE_TAG}")
         }
       }
     }
