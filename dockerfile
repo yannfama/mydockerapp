@@ -1,6 +1,6 @@
 # Filename: mywebapp
 # choosing nginx as the  base image
-FROM nginx:1.20.1
+FROM nginx:2
 
 # OS update 
 RUN apt-get update && apt-get upgrade -y
